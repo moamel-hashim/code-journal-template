@@ -21,5 +21,5 @@ function formHandler(event) {
     entryId: data.nextEntryId++
   };
   data.entries.unshift(form);
-  event.reset();
+  $form.reset();
 }

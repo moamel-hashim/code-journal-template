@@ -57,6 +57,7 @@ textarea {
   border: solid 1px rgb(195, 195, 195);
   resize: none;
   outline-color: rgb(86, 43, 129);
+  font-family: "Open Sans", sans-serif;
 }
 
 .text-align-end {
