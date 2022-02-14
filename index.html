@@ -13,11 +13,57 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Proza+Libre:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="purple">
+    <div class="container padding">
+      <h2 class="color-white font-family font-weight">Code Journal</h2>
+    </div>
   </header>
-  <main>
+  <main class="font-family">
+    <div class="container">
+      <div class="column-full proza-libre">
+        <div>
+          <h1>New Entry</h1>
+        </div>
+        <div data-entry="entry-form">
+          <form action="">
+            <div class="row">
+              <div class="img-container column-half">
+                <img src="./images/placeholder-image-square.jpg" alt="place holder image" class="border-radius image">
+              </div>
+              <div class="input-container column-half">
+                <div class="margin-top-and-bottom">
+                  <label for="title">Title</label>
+                </div>
+                <div>
+                  <input type="text" name="title" id="title" required>
+                </div>
+                <div class="margin-top-and-bottom">
+                  <label for="photo url">Photo URl</label>
+                </div>
+                <div>
+                  <input type="text" name="photoUrl" id="image" required>
+                </div>
+              </div>
+              <div class="column-full">
+                <label for="notes">Notes</label>
+                <div class="margin-top-and-bottom">
+                </div>
+                <div>
+                  <textarea name="notes" id="notes" cols="30" rows="10" required></textarea>
+                </div>
+                <div class="text-align-end margin-top-and-bottom">
+                  <button class="border-radius purple color-white">SAVE</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

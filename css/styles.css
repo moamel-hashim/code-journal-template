@@ -1,0 +1,76 @@
+.purple {
+  background-color: rgb(86, 43, 129);
+}
+
+h2 {
+  margin: 0;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.color-white {
+  color: white;
+}
+
+.font-family {
+  font-family: "Open Sans", sans-serif;
+}
+
+.font-weight {
+  font-weight: 400;
+}
+
+.proza-libre {
+  font-family: "proza libre", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.border-radius {
+  border-radius: 5px;
+}
+
+.margin-top-and-bottom {
+  margin: 1rem 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 5px;
+  border: solid 1px rgb(195, 195, 195);
+  outline-color: rgb(86, 43, 129);
+}
+
+label {
+  font-family: "proza libre", sans-serif;
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: solid 1px rgb(195, 195, 195);
+  resize: none;
+  outline-color: rgb(86, 43, 129);
+  font-family: "Open Sans", sans-serif;
+}
+
+.text-align-end {
+  text-align: end;
+}
+
+button {
+  padding: 7px 12px;
+  font-family: "proza libre", sans-serif;
+  font-weight: 500;
+  border: none;
+}
+
+.display-block {
+  display: block;
+}
