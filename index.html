@@ -22,40 +22,46 @@
       <h2 class="color-white font-family font-weight">Code Journal</h2>
     </div>
   </header>
-  <main>
+  <main class="font-family">
     <div class="container">
       <div class="column-full proza-libre">
         <div>
           <h1>New Entry</h1>
         </div>
-        <div class="img-container">
-          <img src="./images/placeholder-image-square.jpg" alt="place holder image" class="border-radius">
+        <div data-entry="entry-form">
+          <form action="">
+            <div class="row">
+              <div class="img-container column-half">
+                <img src="./images/placeholder-image-square.jpg" alt="place holder image" class="border-radius">
+              </div>
+              <div class="input-container column-half">
+                <div class="margin-top-and-bottom">
+                  <label for="title">Title</label>
+                </div>
+                <div>
+                  <input type="text" name="title" id="title" required>
+                </div>
+                <div class="margin-top-and-bottom">
+                  <label for="photo url">Photo URl</label>
+                </div>
+                <div>
+                  <input type="text" name="photo url" id="image">
+                </div>
+              </div>
+              <div class="column-full">
+                <label for="notes">Notes</label>
+                <div class="margin-top-and-bottom">
+                </div>
+                <div>
+                  <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                </div>
+                <div class="text-align-end margin-top-and-bottom">
+                  <button class="border-radius purple color-white">SAVE</button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <form action="">
-          <div class="input-container" data-view="entry-form">
-            <div class="margin-top-and-bottom">
-              <label for="title">Title</label>
-            </div>
-            <div>
-              <input type="text" name="title" id="title" required>
-            </div>
-            <div class="margin-top-and-bottom">
-              <label for="photo url">Photo URl</label>
-            </div>
-            <div>
-              <input type="text" name="photo url" id="image">
-            </div>
-            <div class="margin-top-and-bottom">
-              <label for="notes">Notes</label>
-            </div>
-            <div>
-              <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
-            </div>
-            <div class="text-align-end margin-top-and-bottom">
-              <button class="border-radius purple color-white">SAVE</button>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </main>

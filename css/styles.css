@@ -69,3 +69,7 @@ button {
   font-weight: 500;
   border: none;
 }
+
+.display-block {
+  display: block;
+}
