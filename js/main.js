@@ -14,10 +14,10 @@ const $form = document.querySelector('form');
 $form.addEventListener('submit', formHandler);
 function formHandler(event) {
   event.preventDefault();
-  console.log($form.elements.title.value);
   const form = {
     title: $form.elements.title.value,
     image: $form.elements.photoUrl.value,
-    text: $form.elements.notes.value
+    text: $form.elements.notes.value,
+    entryId: data.nextEntryId++
   };
 }
