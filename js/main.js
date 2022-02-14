@@ -9,3 +9,15 @@ function inputHandler(event) {
     $img.setAttribute('src', './images/placeholder-image-square.jpg');
   }
 }
+
+const $form = document.querySelector('form');
+$form.addEventListener('submit', formHandler);
+function formHandler(event) {
+  event.preventDefault();
+  console.log($form.elements.title.value);
+  const form = {
+    title: $form.elements.title.value,
+    image: $form.elements.photoUrl.value,
+    text: $form.elements.notes.value
+  };
+}
