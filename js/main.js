@@ -20,4 +20,6 @@ function formHandler(event) {
     text: $form.elements.notes.value,
     entryId: data.nextEntryId++
   };
+  data.entries.unshift(form);
+  event.reset();
 }
