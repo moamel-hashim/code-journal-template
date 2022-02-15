@@ -20,9 +20,13 @@ function formHandler(event) {
     text: $form.elements.notes.value,
     entryId: data.nextEntryId++
   };
-  data.entries.unshift(form);
   const domTreeReturnValue = domTree(form);
+  data.entries.unshift(form);
   $ul.prepend(domTreeReturnValue);
+  const $img = document.querySelector('.image');
+  $img.setAttribute('src', './images/placeholder-image-square.jpg');
+  noEntries();
+  switchView('entries');
   $form.reset();
 }
 
@@ -64,37 +68,39 @@ function handleDomContent(event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(domTree(data.entries[i]));
   }
-  if (data.entries.length === 0) {
-    const $p = document.createElement('p');
-    $p.textContent = 'No entries have been recorded';
-    $p.className = 'text-align-center view';
-    $ul.appendChild($p);
-  } else if (data.entries.length <= 0) {
-    const $p = document.querySelector('.view');
-    $p.className = 'hidden';
-  }
+  switchView(data.view);
+  noEntries();
 }
 
 const $new = document.querySelector('.new');
-$new.addEventListener('click', handleNew);
-function handleNew(event) {
-  if (event.target) {
-    const $entryForm = document.querySelector('.hidden');
-    $entryForm.className = 'view';
-    const $dataView = document.querySelector('[data-view]');
-    $dataView.className = 'hidden';
+$new.addEventListener('click', handleNewButton);
+function handleNewButton(event) {
+  switchView('entry-form');
+}
+const $view = document.querySelectorAll('[data-view]');
+
+function switchView(viewName) {
+  data.view = viewName;
+  for (let i = 0; i < $view.length; i++) {
+    if ($view[i].getAttribute('data-view') === viewName) {
+      $view[i].className = 'view';
+    } else {
+      $view[i].className = 'hidden view';
+    }
   }
 }
 
-const $save = document.querySelector('.save');
-$save.addEventListener('click', handleSave);
-function handleSave(event) {
-  if (event.target) {
-    const $entryForm = document.querySelector('.view');
-    $entryForm.className = 'hidden';
-    const $dataView = document.querySelector('[data-view]');
-    $dataView.className = 'view';
-    const $image = document.querySelector('.image');
-    $image.setAttribute('src', './images/placeholder-image-square.jpg');
+function noEntries() {
+  if (data.entries.length > 0) {
+    const $p = document.querySelector('.no-entry');
+    $p.className = 'no-entry text-align-center hidden';
   }
+}
+
+var $anchor = document.querySelector('a');
+$anchor.addEventListener('click', anchor);
+
+function anchor(event) {
+  event.preventDefault();
+  switchView('entries');
 }
