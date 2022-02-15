@@ -116,3 +116,7 @@ a {
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
 }
+
+.margin {
+  margin: 3rem 0;
+}
