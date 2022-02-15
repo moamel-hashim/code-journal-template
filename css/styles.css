@@ -120,3 +120,7 @@ a {
 .margin {
   margin: 3rem 0;
 }
+
+.text-align-center {
+  text-align: center;
+}

@@ -21,6 +21,8 @@ function formHandler(event) {
     entryId: data.nextEntryId++
   };
   data.entries.unshift(form);
+  const domTreeReturnValue = domTree(form);
+  $ul.prepend(domTreeReturnValue);
   $form.reset();
 }
 
@@ -61,5 +63,38 @@ window.addEventListener('DOMContentLoaded', handleDomContent);
 function handleDomContent(event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(domTree(data.entries[i]));
+  }
+  if (data.entries.length === 0) {
+    const $p = document.createElement('p');
+    $p.textContent = 'No entries have been recorded';
+    $p.className = 'text-align-center view';
+    $ul.appendChild($p);
+  } else if (data.entries.length <= 0) {
+    const $p = document.querySelector('.view');
+    $p.className = 'hidden';
+  }
+}
+
+const $new = document.querySelector('.new');
+$new.addEventListener('click', handleNew);
+function handleNew(event) {
+  if (event.target) {
+    const $entryForm = document.querySelector('.hidden');
+    $entryForm.className = 'view';
+    const $dataView = document.querySelector('[data-view]');
+    $dataView.className = 'hidden';
+  }
+}
+
+const $save = document.querySelector('.save');
+$save.addEventListener('click', handleSave);
+function handleSave(event) {
+  if (event.target) {
+    const $entryForm = document.querySelector('.view');
+    $entryForm.className = 'hidden';
+    const $dataView = document.querySelector('[data-view]');
+    $dataView.className = 'view';
+    const $image = document.querySelector('.image');
+    $image.setAttribute('src', './images/placeholder-image-square.jpg');
   }
 }
