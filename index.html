@@ -16,19 +16,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Proza+Libre:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="white-smoke">
   <header class="purple">
     <div class="container padding">
-      <h2 class="color-white font-family font-weight">Code Journal</h2>
+      <div class="row justify-content-space-around align-items-center">
+        <h2 class="color-white font-family font-weight">Code Journal</h2>
+        <div class="half">
+          <a href="" class="color-white">Entries</a>
+        </div>
+      </div>
     </div>
   </header>
   <main class="font-family">
     <div class="container">
       <div class="column-full proza-libre">
-        <div>
-          <h1>New Entry</h1>
-        </div>
-        <div data-entry="entry-form">
+        <div data-view="entry-form" class="hidden">
+          <div>
+            <h1>New Entry</h1>
+          </div>
           <form action="">
             <div class="row">
               <div class="img-container column-half">
@@ -42,7 +47,7 @@
                   <input type="text" name="title" id="title" required>
                 </div>
                 <div class="margin-top-and-bottom">
-                  <label for="photo url">Photo URl</label>
+                  <label for="photoUrl">Photo URl</label>
                 </div>
                 <div>
                   <input type="text" name="photoUrl" id="image" required>
@@ -56,13 +61,30 @@
                   <textarea name="notes" id="notes" cols="30" rows="10" required></textarea>
                 </div>
                 <div class="text-align-end margin-top-and-bottom">
-                  <button class="border-radius purple color-white">SAVE</button>
+                  <button class="save">save</button>
                 </div>
               </div>
             </div>
           </form>
         </div>
       </div>
+    </div>
+    <div data-view="entries" class="hidden view entries">
+      <div class="container">
+        <div class="row justify-content-space-between align-items-center">
+          <div>
+            <h1>Entries</h1>
+          </div>
+          <div>
+            <button class="new">new</button>
+          </div>
+        </div>
+      </div>
+      <ul class="ul">
+        <li>
+          <p class="text-align-center no-entry">No entries have been recorded</p>
+        </li>
+      </ul>
     </div>
   </main>
   <script src="js/data.js"></script>
