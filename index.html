@@ -19,16 +19,21 @@
 <body class="white-smoke">
   <header class="purple">
     <div class="container padding">
-      <h2 class="color-white font-family font-weight">Code Journal</h2>
+      <div class="row justify-content-space-around align-items-center">
+        <h2 class="color-white font-family font-weight">Code Journal</h2>
+        <div class="half">
+          <a href="" class="color-white">Entries</a>
+        </div>
+      </div>
     </div>
   </header>
   <main class="font-family">
     <div class="container">
       <div class="column-full proza-libre">
-        <div>
-          <h1>New Entry</h1>
-        </div>
-        <div data-entry="entry-form">
+        <div data-entry="entry-form" class="hidden">
+          <div>
+            <h1>New Entry</h1>
+          </div>
           <form action="">
             <div class="row">
               <div class="img-container column-half">
@@ -56,7 +61,7 @@
                   <textarea name="notes" id="notes" cols="30" rows="10" required></textarea>
                 </div>
                 <div class="text-align-end margin-top-and-bottom">
-                  <button class="border-radius purple color-white">SAVE</button>
+                  <button>save</button>
                 </div>
               </div>
             </div>
@@ -65,7 +70,33 @@
       </div>
     </div>
     <div data-view="entries">
-      <ul></ul>
+      <ul>
+        <li>
+          <div class="container">
+            <div class="row justify-content-space-between align-items-center">
+              <div>
+                <h1>Entries</h1>
+              </div>
+              <div>
+                <button>new</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-half">
+                <div class="img-container">
+                  <img src="./images/placeholder-image-square.jpg" alt="" class="border-radius">
+                </div>
+              </div>
+              <div class="column-half">
+                <div class="text-container">
+                  <h2>Ada lovelace</h2>
+                  <p>Augusta Ada King, Countess of Lovelace was an English mathematician and writer, chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine.She was the first to recognize that the machine had applications beyond pure calculation, and to have published the first algorithm intended to be carried out by such a machine.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </main>
   <script src="js/data.js"></script>

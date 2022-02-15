@@ -69,6 +69,11 @@ button {
   font-family: "proza libre", sans-serif;
   font-weight: 500;
   border: none;
+  text-transform: uppercase;
+  background-color: rgb(86, 43, 129);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .display-block {
@@ -77,4 +82,37 @@ button {
 
 .white-smoke {
   background-color: whitesmoke;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.margin-right {
+  margin-right: 1rem;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+p {
+  line-height: 1.7rem;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
 }
