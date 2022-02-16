@@ -84,6 +84,8 @@ const $new = document.querySelector('.new');
 $new.addEventListener('click', handleNewButton);
 function handleNewButton(event) {
   switchView('entry-form');
+  const $h1 = document.querySelector('h1');
+  $h1.textContent = 'New Entry';
 }
 const $view = document.querySelectorAll('[data-view]');
 
@@ -111,4 +113,13 @@ $anchor.addEventListener('click', anchor);
 function anchor(event) {
   event.preventDefault();
   switchView('entries');
+}
+
+$ul.addEventListener('click', handleEdit);
+function handleEdit(event) {
+  if (event.target.matches('i')) {
+    switchView('entry-form');
+    const $h1 = document.querySelector('h1');
+    $h1.textContent = 'Edit Entry';
+  }
 }
