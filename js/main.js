@@ -86,6 +86,11 @@ function handleNewButton(event) {
   switchView('entry-form');
   const $h1 = document.querySelector('h1');
   $h1.textContent = 'New Entry';
+  // data.editing.text = $form.elements.notes.value;
+  // data.editing.title = $form.elements.title.value;
+  // data.editing.image = $form.elements.photoUrl.value;
+  const $img = document.querySelector('.image');
+  $img.setAttribute('src', './images/placeholder-image-square.jpg');
 }
 const $view = document.querySelectorAll('[data-view]');
 
@@ -113,13 +118,25 @@ $anchor.addEventListener('click', anchor);
 function anchor(event) {
   event.preventDefault();
   switchView('entries');
+  $form.reset();
 }
 
 $ul.addEventListener('click', handleEdit);
 function handleEdit(event) {
   if (event.target.matches('i')) {
-    switchView('entry-form');
     const $h1 = document.querySelector('h1');
     $h1.textContent = 'Edit Entry';
+    const getEntryIds = parseInt(event.target.closest('span').getAttribute('data-entry-id'));
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === getEntryIds) {
+        data.editing = data.entries[i];
+      }
+    }
+    $form.elements.title.value = data.editing.title;
+    $form.elements.photoUrl.value = data.editing.image;
+    $form.elements.notes.value = data.editing.text;
+    const $img = document.querySelector('.image');
+    $img.setAttribute('src', $photoURL.value);
+    switchView('entry-form');
   }
 }
