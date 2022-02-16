@@ -63,6 +63,7 @@ function domTree(entry) {
   $textContainer.appendChild($p);
   const $span = document.createElement('span');
   $span.setAttribute('class', 'position-absolute');
+  $span.setAttribute('data-entry-id', entry.entryId);
   $h2.appendChild($span);
   const $i = document.createElement('i');
   $i.setAttribute('class', 'fas fa-pen color-purple');

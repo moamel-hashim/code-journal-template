@@ -132,6 +132,7 @@ a {
 .position-absolute {
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 .color-purple {
