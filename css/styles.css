@@ -124,3 +124,16 @@ a {
 .text-align-center {
   text-align: center;
 }
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+  right: 0;
+}
+
+.color-purple {
+  color: rgb(86, 43, 129);
+}

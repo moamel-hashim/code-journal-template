@@ -56,10 +56,17 @@ function domTree(entry) {
   $secondDivHalf.appendChild($textContainer);
   const $h2 = document.createElement('h2');
   $h2.textContent = entry.title;
+  $h2.setAttribute('class', 'position-relative');
   $textContainer.appendChild($h2);
   const $p = document.createElement('p');
   $p.textContent = entry.text;
   $textContainer.appendChild($p);
+  const $span = document.createElement('span');
+  $span.setAttribute('class', 'position-absolute');
+  $h2.appendChild($span);
+  const $i = document.createElement('i');
+  $i.setAttribute('class', 'fas fa-pen color-purple');
+  $span.appendChild($i);
   return $li;
 }
 
