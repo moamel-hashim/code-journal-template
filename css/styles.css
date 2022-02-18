@@ -138,3 +138,50 @@ a {
 .color-purple {
   color: rgb(86, 43, 129);
 }
+
+.delete {
+  color: red;
+  text-decoration: underline;
+  border: none;
+  background-color: whitesmoke;
+  text-transform: capitalize;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.cancel {
+  background-color: #b6b6b6;
+  color: #292929;
+}
+
+.confirm {
+  background-color: #dc2626;
+}
+
+.padding-top-and-bottom {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.padding-top {
+  padding-top: 1rem;
+}
+
+.confirm-delete-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cancel-button-container {
+  padding-left: 1rem;
+  text-align: start;
+  padding-bottom: 1rem;
+}
+
+.confirm-button-container {
+  padding-right: 1rem;
+}

@@ -23,7 +23,6 @@ function formHandler(event) {
 
   const $img = document.querySelector('.image');
   $img.setAttribute('src', './images/placeholder-image-square.jpg');
-  noEntries();
   switchView('entries');
   $form.reset();
   if (data.editing !== null) {
@@ -48,6 +47,7 @@ function formHandler(event) {
     data.entries.unshift(form);
     $ul.prepend(domTree(form));
   }
+  noEntries();
 }
 
 const $ul = document.querySelector('.ul');
@@ -96,6 +96,16 @@ function handleDomContent(event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(domTree(data.entries[i]));
   }
+  if (data.editing !== null) {
+    const $h1 = document.querySelector('h1');
+    $h1.textContent = 'Edit Entry';
+    $form.elements.title.value = data.editing.title;
+    $form.elements.photoUrl.value = data.editing.image;
+    $form.elements.notes.value = data.editing.text;
+    const $img = document.querySelector('.image');
+    $img.setAttribute('src', $photoURL.value);
+    $deleteButton.classList.remove('visibility-hidden');
+  }
   switchView(data.view);
   noEntries();
 }
@@ -108,6 +118,10 @@ function handleNewButton(event) {
   $h1.textContent = 'New Entry';
   const $img = document.querySelector('.image');
   $img.setAttribute('src', './images/placeholder-image-square.jpg');
+  const $deleteButton = document.querySelector('.delete-button-container');
+  $deleteButton.classList.add('visibility-hidden');
+  data.editing = null;
+  $form.reset();
 }
 const $view = document.querySelectorAll('[data-view]');
 
@@ -126,6 +140,9 @@ function noEntries() {
   if (data.entries.length > 0) {
     const $p = document.querySelector('.no-entry');
     $p.className = 'no-entry text-align-center hidden';
+  } else {
+    const $p = document.querySelector('.no-entry');
+    $p.className = 'no-entry text-align-center view';
   }
 }
 
@@ -140,9 +157,11 @@ function anchor(event) {
 
 $ul.addEventListener('click', handleEdit);
 function handleEdit(event) {
+  event.preventDefault();
   if (event.target.matches('i')) {
     const $h1 = document.querySelector('h1');
     $h1.textContent = 'Edit Entry';
+    $deleteButton.classList.remove('visibility-hidden');
     const getEntryIds = parseInt(event.target.closest('li').getAttribute('data-entry-id'));
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === getEntryIds) {
@@ -156,4 +175,50 @@ function handleEdit(event) {
     $img.setAttribute('src', $photoURL.value);
     switchView('entry-form');
   }
+}
+
+const $deleteButton = document.querySelector('.delete-button-container');
+$deleteButton.addEventListener('click', handleModel);
+function handleModel(event) {
+  event.preventDefault();
+  if (event.target) {
+    const $model = document.querySelector('.model-container');
+    $model.classList.remove('hidden');
+    const $overlay = document.querySelector('.overlay');
+    $overlay.classList.remove('hidden');
+  }
+}
+
+const $cancel = document.querySelector('.cancel');
+$cancel.addEventListener('click', handleCancel);
+function handleCancel(event) {
+  event.preventDefault();
+  const $model = document.querySelector('.model-container');
+  $model.classList.add('hidden');
+  const $overlay = document.querySelector('.overlay');
+  $overlay.classList.add('hidden');
+}
+
+const $confirm = document.querySelector('.confirm');
+$confirm.addEventListener('click', handleConfirm);
+function handleConfirm(event) {
+  const $model = document.querySelector('.model-container');
+  $model.classList.add('hidden');
+  const $overlay = document.querySelector('.overlay');
+  $overlay.classList.add('hidden');
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  const $lis = document.querySelectorAll('li');
+  for (let i = 0; i < $lis.length; i++) {
+    const entryIds = parseInt($lis[i].getAttribute('data-entry-id'));
+    if (data.editing.entryId === entryIds) {
+      $lis[i].remove();
+    }
+  }
+  switchView('entries');
+  data.editing = null;
+  noEntries();
 }
